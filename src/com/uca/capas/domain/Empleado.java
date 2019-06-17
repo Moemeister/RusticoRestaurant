@@ -34,7 +34,7 @@ public class Empleado {
 	private Boolean estado;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idsucursal")
+	@JoinColumn(name = "idsuc")
 	private Sucursal sucursal;
 	
 	

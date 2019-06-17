@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.uca.capas.dto.LoginDTO;
+
 import com.uca.capas.service.UserService;
 
 @Controller
@@ -18,13 +18,10 @@ public class LoginController {
 	
 	@Autowired
 	UserService userService;
-	
+
 	@RequestMapping("/")
-	public ModelAndView login(){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("loginDTO", new LoginDTO());
-		mav.setViewName("login");
-		return mav;
+	public String initMain() {
+		return "login";
 	}
 	
 	@RequestMapping(value = "/login",method = RequestMethod.POST)

@@ -24,11 +24,11 @@
 			e.preventDefault();
 			$.ajax(
 				{
-					/* url: "${pageContext.request.contextPath}/login",
+					url: "${pageContext.request.contextPath}/login",
 					data:  $("#login").serialize(),
-					type: 'POST', */
+					type: 'POST', 
 					success: function (result) {
-						location.href = "${pageContext.request.contextPath}/sucursales.jsp"
+						location.href = "${pageContext.request.contextPath}/sucursales"
 					},
 					error: function (result) {
 						swal("Usuario o contraseña inválido", {
