@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -19,16 +20,14 @@
 	<c:forEach items="${sucursal}" var="sucursal">
 		<tr>
 			<td>${sucursal.sucursal}</td>
-			<td><form name="perfil" action="${pageContext.request.contextPath}/profile" method="post">
-            		<input type="hidden" name="id" value="${sucursal.idSucursal}">
+			<td><form id="form" name="perfil" action="${pageContext.request.contextPath}/profile" method="post">
+            		<input type="hidden" name="proId" value="${sucursal.idSucursal}">
             		<input type="submit" value="Ver Perfil">
 				</form>
 			</td>
 			<td>
-				<form action="${pageContext.request.contextPath}/delete" method="post"> 
-            		<input type="hidden" name="valorId" value="${sucursal.idSucursal}">
-            		<input type="submit" class="delete_button" value="Eliminar">
-				</form>
+			<!-- action="${pageContext.request.contextPath}/delete" method="post" -->
+            <input type="button" class="delete_button" value="Eliminar" onClick="deleteSuc(${sucursal.idSucursal})">
 			</td>
 			<td>
 			<form name="editarSucursal" action="${pageContext.request.contextPath}/edit" method="post">
@@ -38,6 +37,28 @@
 			</td>
 		</tr>
 	</c:forEach>
+	
 </table>
+<script type='text/javascript'>
+		function deleteSuc(id){
+	   
+			$.ajax(
+				{
+					url: "${pageContext.request.contextPath}/delete",
+					data: {
+						delId:id,
+						},
+					type: 'POST', 
+					success: function (result,status,hxr) {
+						console.log(hxr.status)
+						location.href = "${pageContext.request.contextPath}/sucursales"
+					},
+					error: function (result) {
+						console.log("Nel perro")
+						location.href = "${pageContext.request.contextPath}/sucursales"
+					}
+				});
+		}
+    </script> 
 </body> 
 </html>

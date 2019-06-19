@@ -42,7 +42,7 @@ public class Sucursal {
 	@Column(name = "nomgerente")
 	private String gerente;
 	
-	@OneToMany(mappedBy = "sucursal", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "sucursal", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Empleado> empleado;
 	
 	public Integer getIdSucursal() {

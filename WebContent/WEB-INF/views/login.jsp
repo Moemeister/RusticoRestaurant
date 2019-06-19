@@ -14,7 +14,8 @@
 
 </head>
 <body>
-	<form id="login" action="${pageContext.request.contextPath}/login" method="post">
+<!--  response.setStatus(HttpServletResponse.SC_OK);-->
+	<form id="login">
 		<input type="email" placeholder="Username" name="user">
 		<input type="password" placeholder="Password" name="pass">
 		<input type="submit" value="LOGIN">

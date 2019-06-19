@@ -40,4 +40,10 @@ public class SucursalServiceImp implements SucursalService{
 		return surepo.findById(id).get();
 	}
 
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		surepo.deleteById(id);
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.uca.capas.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.capas.domain.Sucursal;
@@ -65,6 +67,17 @@ public class SucursalController {
 		mav.setViewName("registrar");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public int eliminar(@RequestParam(name = "delId") Integer id, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		sucService.delete(id);
+		response.setStatus(HttpServletResponse.SC_OK);
+	
+		return 1;
+	}
+	
 	
 	
 		
