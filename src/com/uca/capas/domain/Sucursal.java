@@ -19,8 +19,8 @@ import javax.persistence.Table;
 public class Sucursal {
 
 	@Id
-	@GeneratedValue(generator = "sucursal_idsucursal_seq", strategy = GenerationType.AUTO)
-	@SequenceGenerator(name = "sucursal_idsucursal_seq", sequenceName = "public.sucursal_idsucursal_seq", allocationSize = 1)
+	@GeneratedValue(generator = "sucursal_idsuc_seq", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "sucursal_idsuc_seq", sequenceName = "public.sucursal_idsuc_seq", allocationSize = 1)
 	@Column(name = "idsuc")
 	private Integer idSucursal;
 	
@@ -31,10 +31,10 @@ public class Sucursal {
 	private String ubicacion;
 	
 	@Column(name = "openschedule")
-	private Time open;
+	private String open;
 	
 	@Column(name = "closeschedule")
-	private Time close;
+	private String close;
 	
 	@Column(name = "nmesas")
 	private Integer nMesas;
@@ -42,7 +42,7 @@ public class Sucursal {
 	@Column(name = "nomgerente")
 	private String gerente;
 	
-	@OneToMany(mappedBy = "sucursal", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "sucursal", fetch = FetchType.LAZY)
 	private List<Empleado> empleado;
 	
 	public Integer getIdSucursal() {
@@ -63,16 +63,16 @@ public class Sucursal {
 	public void setUbicacion(String ubicacion) {
 		this.ubicacion = ubicacion;
 	}
-	public Time getOpen() {
+	public String getOpen() {
 		return open;
 	}
-	public void setOpen(Time open) {
+	public void setOpen(String open) {
 		this.open = open;
 	}
-	public Time getClose() {
+	public String getClose() {
 		return close;
 	}
-	public void setClose(Time close) {
+	public void setClose(String close) {
 		this.close = close;
 	}
 	public Integer getnMesas() {
@@ -86,6 +86,12 @@ public class Sucursal {
 	}
 	public void setGerente(String gerente) {
 		this.gerente = gerente;
+	}
+	public List<Empleado> getEmpleado() {
+		return empleado;
+	}
+	public void setEmpleado(List<Empleado> empleado) {
+		this.empleado = empleado;
 	}
 	
 	

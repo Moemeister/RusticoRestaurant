@@ -11,4 +11,6 @@ import com.uca.capas.domain.Sucursal;
 public interface SucursalRepo extends JpaRepository<Sucursal, Integer>{
 
 	public List<Sucursal> findAll();
+
+	
 }
