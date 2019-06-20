@@ -45,6 +45,12 @@ public class Sucursal {
 	@OneToMany(mappedBy = "sucursal", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Empleado> empleado;
 	
+	
+	
+	public Sucursal() {
+		super();
+	}
+	
 	public Integer getIdSucursal() {
 		return idSucursal;
 	}

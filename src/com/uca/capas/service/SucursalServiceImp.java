@@ -37,7 +37,7 @@ public class SucursalServiceImp implements SucursalService{
 	@Override
 	public Sucursal findOne(Integer id) {
 		// TODO Auto-generated method stub
-		return surepo.findById(id).get();
+		return surepo.getOne(id);
 	}
 
 	@Override

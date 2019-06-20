@@ -41,8 +41,28 @@
 </table>
 <script type='text/javascript'>
 		function deleteSuc(id){
-	   
-			$.ajax(
+			/* var url = '${pageContext.request.contextPath}/delete/';
+			var data = {delId: id};
+       	 	//const myObj={delId:id} 
+			
+	   	 	fetch( url, 
+	   		   	{
+					method: 'POST',
+					body: data,
+					headers:{
+					    'Content-Type': 'application/json'
+					  }
+		   		}
+		   	).then(response=>{
+			   		console.log(response)
+		   			//location.href = "${pageContext.request.contextPath}/sucursales"
+			})
+			.catch(error=>{
+				console.log(error)
+						//location.href = "${pageContext.request.contextPath}/sucursales"
+			});   */
+			
+			 $.ajax(
 				{
 					url: "${pageContext.request.contextPath}/delete",
 					data: {
@@ -57,8 +77,8 @@
 						console.log("Nel perro")
 						location.href = "${pageContext.request.contextPath}/sucursales"
 					}
-				});
-		}
+				});  
+		} 
     </script> 
 </body> 
 </html>
