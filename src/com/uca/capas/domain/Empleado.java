@@ -10,26 +10,34 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+@SuppressWarnings("deprecation")
 @Entity
 @Table(schema="public", name="empleado")
 public class Empleado {
-
+	
 	@Id
 	@GeneratedValue(generator = "empleado_idempleado_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "empleado_idempleado_seq", sequenceName = "public.empleado_idempleado_seq", allocationSize = 1)
 	@Column(name = "idempleado")
 	private Integer idEmpleado;
 		
+	@NotEmpty(message = "ingrese el nombre del empleado")
 	@Column(name = "nombre")
 	private String nombre;
 	
+	@NotNull(message = "ingrese la edad del empleado")
 	@Column(name = "edad")
 	private Integer edad;
 	
+	@NotNull(message = "Defina el genero")
 	@Column(name = "genero")
 	private Boolean genero;
 	 
+	@NotNull(message = "Defina el estado")
 	@Column(name = "estado")
 	private Boolean estado;
 	

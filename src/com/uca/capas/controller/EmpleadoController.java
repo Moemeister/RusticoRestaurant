@@ -1,6 +1,7 @@
 	package com.uca.capas.controller;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,7 @@ public class EmpleadoController {
 		return mav;
 	}
 	@RequestMapping("/editEmp")
-	public ModelAndView editarCliente(@RequestParam("editId") Integer id,@RequestParam("IdSuc") Integer id2){
+	public ModelAndView editarEmpleado(@RequestParam("editId") Integer id,@RequestParam("IdSuc") Integer id2){
 		ModelAndView mav = new ModelAndView();
 		Empleado empleado = empService.findEmp(id);
 		mav.addObject("empleado", empleado);
@@ -57,7 +58,7 @@ public class EmpleadoController {
 	}
 	
 	@RequestMapping(value="/saveEmp", method = RequestMethod.POST)
-	public ModelAndView saveCliente(@ModelAttribute("empleado") Empleado s,@RequestParam("proId") Integer id, BindingResult r){
+	public ModelAndView saveEmpleado(@Valid @ModelAttribute("empleado") Empleado s, BindingResult r, @RequestParam(name = "proId", required = true) Integer id){
 		ModelAndView mav = new ModelAndView();
 		Sucursal sucursal = sucService.findOne(id);
 		s.setSucursal(sucursal);

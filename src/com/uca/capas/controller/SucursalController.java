@@ -43,7 +43,7 @@ public class SucursalController {
 	
 	
 	@RequestMapping(value="/savesucursal", method = RequestMethod.POST)
-	public ModelAndView saveCliente(@ModelAttribute("sucursal") Sucursal s, BindingResult r){
+	public ModelAndView saveSucursal(@Valid @ModelAttribute("sucursal") Sucursal s, BindingResult r){
 		ModelAndView mav = new ModelAndView();
 		
 		if(r.hasErrors()){
@@ -62,7 +62,7 @@ public class SucursalController {
 	}
 	
 	@RequestMapping("/edit")
-	public ModelAndView editarCliente(@RequestParam("editId") Integer idsucursal){
+	public ModelAndView editarSucursal(@RequestParam("editId") Integer idsucursal){
 		ModelAndView mav = new ModelAndView();
 		Sucursal sucursal = sucService.findOne(idsucursal);
 		mav.addObject("sucursal", sucursal);

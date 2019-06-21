@@ -13,32 +13,43 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+@SuppressWarnings("deprecation")
 @Entity
 @Table(schema="public", name="sucursal")
 public class Sucursal {
 
+	//@NotEmpty(message = "ingrese el nombre de la sucursal")
 	@Id
 	@GeneratedValue(generator = "sucursal_idsuc_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "sucursal_idsuc_seq", sequenceName = "public.sucursal_idsuc_seq", allocationSize = 1)
 	@Column(name = "idsuc")
 	private Integer idSucursal;
 	
+	@NotEmpty(message = "ingrese el nombre de la sucursal")
 	@Column(name = "nombre")
 	private String sucursal;
 	
+	@NotEmpty(message = "ingrese la ubicacion")
 	@Column(name = "ubicacion")
 	private String ubicacion;
 	
+	@NotEmpty(message = "ingrese la hora de entrada")
 	@Column(name = "openschedule")
 	private String open;
 	
+	@NotEmpty(message = "ingrese la hora de salida")
 	@Column(name = "closeschedule")
 	private String close;
 	
-	@Column(name = "nmesas")
+	@NotNull(message = "ingrese la cantidad de mesas")
+	@Column(name = "nmesas") 
 	private Integer nMesas;
 	
+	@NotEmpty(message = "ingrese el nombre del gerente")
 	@Column(name = "nomgerente")
 	private String gerente;
 	
