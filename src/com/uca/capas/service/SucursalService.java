@@ -10,4 +10,5 @@ public interface SucursalService {
 	public Sucursal save(Sucursal s);
 	public Sucursal findOne(Integer id);
 	public void delete(Integer id);
+	
 }

@@ -16,11 +16,21 @@
 <table>
 	<tr>
 		<th>Nombre</th>
+		<th>Ubicacion</th>
+		<th>Horarion de Entrada</th>
+		<th>Horario de Cierre</th>
+		<th>Cantidad de Mesas</th>
+		<th>Gerente</th>
 	</tr>
 	<c:forEach items="${sucursal}" var="sucursal">
 		<tr>
 			<td>${sucursal.sucursal}</td>
-			<td><form id="form" name="perfil" action="${pageContext.request.contextPath}/profile" method="post">
+			<td>${sucursal.ubicacion}</td>
+			<td>${sucursal.open}</td>
+			<td>${sucursal.close}</td>
+			<td>${sucursal.nMesas}</td>
+			<td>${sucursal.gerente}</td>
+			<td><form id="form" name="perfil" action="${pageContext.request.contextPath}/profile" method="get">
             		<input type="hidden" name="proId" value="${sucursal.idSucursal}">
             		<input type="submit" value="Ver Perfil">
 				</form>
@@ -41,27 +51,27 @@
 </table>
 <script type='text/javascript'>
 		function deleteSuc(id){
-			/* var url = '${pageContext.request.contextPath}/delete/';
+			var url = '${pageContext.request.contextPath}/delete/';
 			var data = {delId: id};
        	 	//const myObj={delId:id} 
 			
 	   	 	fetch( url, 
 	   		   	{
 					method: 'POST',
-					body: data,
+					body: JSON.stringify(data),
 					headers:{
 					    'Content-Type': 'application/json'
 					  }
 		   		}
 		   	).then(response=>{
 			   		console.log(response)
-		   			//location.href = "${pageContext.request.contextPath}/sucursales"
+		   			location.href = "${pageContext.request.contextPath}/sucursales"
 			})
 			.catch(error=>{
 				console.log(error)
-						//location.href = "${pageContext.request.contextPath}/sucursales"
-			});   */
-			
+						location.href = "${pageContext.request.contextPath}/sucursales"
+			});   
+			/* 
 			 $.ajax(
 				{
 					url: "${pageContext.request.contextPath}/delete",
@@ -78,7 +88,7 @@
 						location.href = "${pageContext.request.contextPath}/sucursales"
 					}
 				});  
-		} 
+ */		} 
     </script> 
 </body> 
 </html>

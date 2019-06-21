@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uca.capas.domain.DelId;
 import com.uca.capas.domain.Sucursal;
 import com.uca.capas.service.SucursalService;
 
@@ -68,13 +70,22 @@ public class SucursalController {
 		return mav;
 	}
 	
+//	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+//	
+//	public int eliminar(@RequestBody @RequestParam(name = "delId") Integer id, HttpServletResponse response){
+//		ModelAndView mav = new ModelAndView();
+//		sucService.delete(id);
+//		response.setStatus(HttpServletResponse.SC_OK);
+//	
+//		return 1;
+//	}
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public int eliminar(@RequestParam(name = "delId") Integer id, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView();
-		sucService.delete(id);
-		response.setStatus(HttpServletResponse.SC_OK);
+	public int eliminar(@RequestBody DelId id , HttpServletResponse response){
 	
+		sucService.delete(id.getDelId());
+		response.setStatus(HttpServletResponse.SC_OK);
+		
 		return 1;
 	}
 	

@@ -14,5 +14,4 @@ import com.uca.capas.domain.User;
 public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
 
 	public List<Empleado> findBySucursal(Sucursal id);
-	
 }

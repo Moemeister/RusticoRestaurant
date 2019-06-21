@@ -75,5 +75,18 @@ public class Empleado {
 		this.sucursal = sucursal;
 	}
 	
+	public String getEstadoDelegate() {
+		if(this.estado == null) return "";
+		else {
+			return estado == true ? "Activo":"Inactivo";
+		}
+	}
+	public String getGenreDelegate() {
+		if(this.estado == null) return "";
+		else {
+			return estado == true ? "Femenino":"Masculino";
+		}
+	}
+	
 	
 }

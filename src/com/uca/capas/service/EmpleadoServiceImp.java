@@ -30,4 +30,22 @@ public class EmpleadoServiceImp implements EmpleadoService{
 		return empRepo.findBySucursal(s);
 	}
 
+	@Override
+	public Empleado save(Empleado e) {
+		// TODO Auto-generated method stub
+		return empRepo.save(e);
+	}
+
+	@Override
+	public Empleado findEmp(Integer id) {
+		// TODO Auto-generated method stub
+		return empRepo.getOne(id);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		empRepo.deleteById(id);
+	}
+
 }
