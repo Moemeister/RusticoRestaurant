@@ -29,27 +29,27 @@ public class Sucursal {
 	@Column(name = "idsuc")
 	private Integer idSucursal;
 	
-	@NotEmpty(message = "ingrese el nombre de la sucursal")
+	@NotEmpty(message = "Ingrese el nombre de la sucursal")
 	@Column(name = "nombre")
 	private String sucursal;
 	
-	@NotEmpty(message = "ingrese la ubicacion")
+	@NotEmpty(message = "Ingrese la ubicacion")
 	@Column(name = "ubicacion")
 	private String ubicacion;
 	
-	@NotEmpty(message = "ingrese la hora de entrada")
+	@NotEmpty(message = "Ingrese la hora de entrada")
 	@Column(name = "openschedule")
 	private String open;
 	
-	@NotEmpty(message = "ingrese la hora de salida")
+	@NotEmpty(message = "Ingrese la hora de salida")
 	@Column(name = "closeschedule")
 	private String close;
 	
-	@NotNull(message = "ingrese la cantidad de mesas")
+	@NotNull(message = "Ingrese la cantidad de mesas")
 	@Column(name = "nmesas") 
 	private Integer nMesas;
 	
-	@NotEmpty(message = "ingrese el nombre del gerente")
+	@NotEmpty(message = "Ingrese el nombre del gerente")
 	@Column(name = "nomgerente")
 	private String gerente;
 	

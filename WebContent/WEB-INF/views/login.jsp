@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,15 +10,25 @@
 <title>Login</title>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<style type="text/css">
+		body{
+		
+		background-color: #A8A8A8; 
+		}
+	</style>
 </head>
 <body>
 <!--  response.setStatus(HttpServletResponse.SC_OK);-->
-	<form id="login">
-		<input type="email" placeholder="Username" name="user">
-		<input type="password" placeholder="Password" name="pass">
-		<input type="submit" value="LOGIN">
-	</form>
+
+<h1 style="text-align:center;font-weight:bold;margin-top:20px;">Rustico Restaurant</h1>
+		<form id="login">
+	<div class="form-group" style="margin: 0 auto;width:50%;border: 1px solid #FFF;border-radius:10px;padding:30px;">
+			<input type="email" class="form-control" placeholder="Username" name="user"><br>
+			<input type="password" class="form-control" placeholder="Password" name="pass"><br>
+			<input type="submit" class="btn btn-dark" value="LOGIN">
+	</div>
+		</form>
+		
 	<script type='text/javascript'>
 	   	$("#login").on('submit', function (e) {
 			e.preventDefault();
@@ -32,7 +41,7 @@
 						location.href = "${pageContext.request.contextPath}/sucursales"
 					},
 					error: function (result) {
-						swal("Usuario o contrase√±a inv√°lido", {
+						swal("Usuario o contraseÒa inv·lido", {
 				 	    	icon: "error",
 		 		   		});
 					}

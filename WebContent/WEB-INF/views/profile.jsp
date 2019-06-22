@@ -1,26 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		body{
+		
+		background-color: #A8A8A8; 
+		}
+	</style>
 </head>
 <body>
 
-<button onclick="location.href='${pageContext.request.contextPath}/sucursales'" value="BACK">Regresar</button>
+<button class="btn btn-dark" style="margin:20px 30px;" onclick="location.href='${pageContext.request.contextPath}/sucursales'" value="BACK">Regresar</button>
 	
-	<table>
+	<table class="table table-hover">
+		<thead class="thead-dark">
 		<tr>
-		<th>Nombre</th>
-		<th>Ubicacion</th>
-		<th>Horarion de Entrada</th>
-		<th>Horario de Cierre</th>
-		<th>Cantidad de Mesas</th>
-		<th>Gerente</th>
-	</tr>
+			<th>Nombre</th>
+			<th>Ubicacion</th>
+			<th>Horarion de Entrada</th>
+			<th>Horario de Cierre</th>
+			<th>Cantidad de Mesas</th>
+			<th>Gerente</th>
+		</tr>
+		</thead>
 	
 	<tr>
 		<td>${sucursal.sucursal}</td>
@@ -30,26 +39,36 @@
 		<td>${sucursal.nMesas}</td>
 		<td>${sucursal.gerente}</td>
 			
-	</tr>	
-	<tr>
-		<td>
+	</tr>
+	</table>
+		<div style="margin:20px 30px;" >
 			<form name="addEmp" action="${pageContext.request.contextPath}/addEmp" method="post">
 			<input type="hidden" name="IdSuc" value="${sucursal.idSucursal}">
-				<input type="submit" value="Agregar Empleados">
+				<input class="btn btn-dark" type="submit" value="Agregar Empleados">
 				
 			</form>
-		</td>
-	</tr>
+		</div>
+	<table class="table table-hover">
+	<thead class="thead-dark">
+	
 	<tr>
 		<th>Empleados de ${sucursal.sucursal }</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+
 	</tr>
 	<tr>
 		<th>Nombre</th>
 		<th>Edad</th>
 		<th>G&eacute;nero</th>
 		<th>Estado</th>
+		<th></th>
+		<th></th>
 	</tr>
-	
+	</thead>
 	<c:forEach items="${empleado}" var="empleado">
 		<tr>
 			<td>${empleado.nombre}</td>
@@ -61,11 +80,11 @@
 			<form name="editarSucursal" action="${pageContext.request.contextPath}/editEmp" method="post">
             		<input type="hidden" name="editId" value="${empleado.idEmpleado}">
             		<input type="hidden" name="IdSuc" value="${sucursal.idSucursal}">
-            		<input type="Submit" value="Editar">
+            		<input class="btn btn-warning" type="Submit" value="Editar">
 				</form>
 			</td>
 			<td>
-				<input type="button" class="delete_button" value="Eliminar" onClick="deleteSuc(${empleado.idEmpleado})">
+				<input type="button" class="btn btn-danger delete_button" value="Eliminar" onClick="deleteSuc(${empleado.idEmpleado})">
 			</td> 
 		</tr>
 	</c:forEach>
